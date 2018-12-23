@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources >
+    <item name ="newtag1" type="id">anewtag</item>
+     <item name ="newtag2" type="id">anewtag</item>
+      <item name ="newtag3" type="id">anewtag</item>
+       <item name ="newtag4" type="id">anewtag</item>
+        <item name ="newtag5" type="id">anewtag</item>
+         <item name ="newtag6" type="id">anewtag</item>
+        
+</resources>
+    

@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <!-- 欢迎登陆提示 -->
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:text="欢迎来到PicsMaker"
+        android:textSize="24dp" 
+        />
+    <!-- 微信图标 -->
+    <!-- 微信登录字样 -->
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:gravity="center_horizontal"
+        android:text="微信登录"
+        android:textColor="#999"
+        android:textSize="16dp" />
+
+<!--     <ImageView
+        android:id="@+id/wxicon"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/weixin" />    -->
+    
+    <ImageButton
+        android:id="@+id/wxicon"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" 
+        android:background="@drawable/weixin"
+         />
+ 
+
+</RelativeLayout>
