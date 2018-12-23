@@ -1,4 +1,4 @@
-
+ï»¿ 
 package com.example.picsmaker.domain;
 import com.example.picsmaker.R;
 
@@ -21,50 +21,50 @@ import android.widget.ImageView;
   
 @SuppressLint("ClickableViewAccessibility")
 public class Material extends ImageView {  
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Î»ï¿½Ãµï¿½X,Yï¿½ï¿½ï¿½ï¿½  
+    //¶¨ÒåÏà¹Ø±äÁ¿,ÒÀ´ÎÊÇÃÃ×ÓÏÔÊ¾Î»ÖÃµÄX,Y×ø±ê  
     public float bitmapX;  
     public float bitmapY;
     private int drawable_id;
     /*
-     * ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Âµï¿½Ê±ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Æ½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ã´¥ï¿½Øµï¿½Ê±ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½Æ½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½Ò»ï¿½ï¿½booleanï¿½ï¿½ï¿½ï¿½mCanTranslateï¿½ï¿½ï¿½ï¿½ACTION_DOWNï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Î»trueï¿½ï¿½ACTION_POINTER_DOWNï¿½ï¿½Îªfalse
+     * µ¥Ö»ÊÖÖ¸°´ÏÂµÄÊ±ºòÊÇ¿ÉÒÔ½øÐÐÆ½ÒÆ²Ù×÷µÄ£¬¶àµã´¥¿ØµÄÊ±ºò²»ÄÜ½øÐÐÆ½ÒÆ²Ù×÷¡£ËùÒÔÎ¬»¤Ò»¸öboolean±äÁ¿mCanTranslate£¬ÔÚACTION_DOWNµÄÊ±ºòÖÃÎ»true£¬ACTION_POINTER_DOWNÖÃÎªfalse
      */
     private boolean mCanTranslate = false;
     private boolean mCanRotate = false;
     private boolean mCanScale = false;
     private PointF mLastSinglePoint = new PointF(),mLastMidPoint = new PointF();
     private float mLastDist;
-    //Í¼Æ¬ï¿½Ä±ß½ï¿½ï¿½ï¿½ï¿½
+    //Í¼Æ¬µÄ±ß½ç¾ØÐÎ
     private RectF mBoundRectF = new RectF();
-    //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½Å¡ï¿½ï¿½ï¿½×ªï¿½ä»»Í¼Æ¬ï¿½Ä¾ï¿½ï¿½ï¿½
+    //ÓÃÓÚÆ½ÒÆ¡¢Ëõ·Å¡¢Ðý×ª±ä»»Í¼Æ¬µÄ¾ØÕó
     private Matrix mCurrentMatrix = new Matrix();
-    //ï¿½ï¿½Â¼onLayoutÖ®ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //¼ÇÂ¼onLayoutÖ®ºóµÄ³õÊ¼»¯Ëõ·ÅÒò×Ó
     private float mInitialScaleFactor = 1.0f;
-    //ï¿½ï¿½Â¼Í¼Æ¬ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //¼ÇÂ¼Í¼Æ¬×ÜµÄËõ·ÅÒò×Ó
     private float mTotalScaleFactor = 1.0f;
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Ê±ï¿½Ä¾ï¿½ï¿½ï¿½Öµ
+    //¶¯»­¿ªÊ¼Ê±µÄ¾ØÕóÖµ
     private float[] mBeginMatrixValues = new float[9];
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ä¾ï¿½ï¿½ï¿½Öµ
+    //¶¯»­½áÊøÊ±µÄ¾ØÕóÖµ
     private float[] mEndMatrixValues = new float[9];
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¾ï¿½ï¿½ï¿½Öµ
+    //¶¯»­¹ý³ÌÖÐµÄ¾ØÕóÖµ
     private float[] mTransformMatrixValues = new float[9];
-    //ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½
+    //ÊôÐÔ¶¯»­
     private ValueAnimator mAnimator = ValueAnimator.ofFloat(0f, 1f);
-    //ï¿½ï¿½Â¼ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Éµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //¼ÇÂ¼ÉÏÒ»´ÎÁ½Ö»ÊÖÖ¸¹¹³ÉµÄÒ»¸öÏòÁ¿
     private PointF mLastVector = new PointF();
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //×î´óËõ·Å±ÈÀýÒò×Ó
     private float mMaxScaleFactor = 3.0f;
-    //ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //×îÐ¡Ëõ·Å±ÈÀýÒò×Ó
     private float mMinScaleFactor = 0.8f;
     	
   
     public Material(Context context,int _id) {  
         super(context);  
-        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½  
+        //ÉèÖÃÃÃ×ÓµÄÆðÊ¼×ø±ê  
         //bitmapX = 0;  
         //bitmapY = 200;  
         this.drawable_id = _id;
         this.setImageResource(_id);
-        //ï¿½ï¿½ï¿½Ã¿Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½
+        //ÉèÖÃ¿Ì¶ÈÀàÐÍ
         this.setScaleType(ScaleType.MATRIX);
         //this.setImageDrawable(getResources().getDrawable(drawable_id));
     }  
@@ -82,14 +82,14 @@ public class Material extends ImageView {
         //init(context, attrs);
     }
  
-    //ï¿½ï¿½Ð´Viewï¿½ï¿½ï¿½onDraw()ï¿½ï¿½ï¿½ï¿½  
+    //ÖØÐ´ViewÀàµÄonDraw()·½·¨  
     public int getDrawableId() {
     	return this.drawable_id;
     }
     
     /**
-     * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
-     * ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ÅºÍ¿Ø¼ï¿½ï¿½ï¿½Ð¡Ò»ï¿½Â²ï¿½ï¿½Æ¶ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ÄºÍ¿Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½
+     * ³õÊ¼»¯·ÅÖÃÍ¼Æ¬
+     * ½«Í¼Æ¬Ëõ·ÅºÍ¿Ø¼þ´óÐ¡Ò»ÖÂ²¢ÒÆ¶¯Í¼Æ¬ÖÐÐÄºÍ¿Ø¼þµÄÖÐÐÄÖØºÏ
      *
      * @param changed
      * @param left
@@ -104,7 +104,7 @@ public class Material extends ImageView {
     }
     
     /**
-     * ï¿½ï¿½Ê¼ï¿½ï¿½Í¼Æ¬ï¿½Ä´ï¿½Ð¡ï¿½ï¿½Î»ï¿½ï¿½
+     * ³õÊ¼»¯Í¼Æ¬µÄ´óÐ¡ÓëÎ»ÖÃ
      */
     private void initImagePositionAndSize() {
         mCurrentMatrix.reset();
@@ -112,108 +112,108 @@ public class Material extends ImageView {
         float scaleFactor = Math.min(getWidth() / mBoundRectF.width(), getHeight() / mBoundRectF.height());
         mInitialScaleFactor = scaleFactor;
         mTotalScaleFactor *= scaleFactor;
-        //ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ð¡ï¿½Í¿Ø¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ó¦
+        //ÒÔÍ¼Æ¬µÄÖÐÐÄµã½øÐÐËõ·Å£¬Ëõ·ÅÍ¼Æ¬´óÐ¡ºÍ¿Ø¼þ´óÐ¡ÊÊÓ¦
         mCurrentMatrix.postScale(scaleFactor, scaleFactor, mBoundRectF.centerX(), mBoundRectF.centerY());
-        //ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Äµï¿½Æ½ï¿½Æµï¿½ï¿½Í¿Ø¼ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½Øºï¿½
+        //½«Í¼Æ¬ÖÐÐÄµãÆ½ÒÆµ½ºÍ¿Ø¼þÖÐÐÄµãÖØºÏ
         mCurrentMatrix.postTranslate(getPivotX() - mBoundRectF.centerX(), getPivotY() - mBoundRectF.centerY());
-        //ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ð±ä»»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ä±ß½ï¿½ï¿½ï¿½ï¿½
+        //¶ÔÍ¼Æ¬½øÐÐ±ä»»£¬²¢¸üÐÂÍ¼Æ¬µÄ±ß½ç¾ØÐÎ
         transform();
     }
 
     
     /**
-     * ï¿½ï¿½ï¿½ï¿½ï¿½ã´¥ï¿½Øµï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Æ½ï¿½Æ²ï¿½ï¿½ï¿½
-     * ï¿½ï¿½ï¿½ï¿½ã´¥ï¿½Øµï¿½Ê±ï¿½ò£º¿ï¿½ï¿½Ô½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Å¡ï¿½ï¿½ï¿½×ª
-     * ACTION_DOWNï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * ACTION_POINTER_DOWNï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Îª2,ï¿½ï¿½Ç²ï¿½ï¿½ï¿½Æ½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * ï¿½ï¿½Â¼Æ½ï¿½Æ¿ï¿½Ê¼Ê±ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ðµã¡¢ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½Î³Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
-     * ACTION_MOVEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½Æ¡ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ÅµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½
-     * ACTION_POINTER_UPï¿½ï¿½ï¿½ï¿½Ò»Ö»ï¿½ï¿½Ö¸Ì§ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
+     * µ±µ¥µã´¥¿ØµÄÊ±ºò¿ÉÒÔ½øÐÐÆ½ÒÆ²Ù×÷
+     * µ±¶àµã´¥¿ØµÄÊ±ºò£º¿ÉÒÔ½øÐÐÍ¼Æ¬µÄËõ·Å¡¢Ðý×ª
+     * ACTION_DOWN£º±ê¼ÇÄÜÆ½ÒÆ¡¢²»ÄÜÐý×ª¡¢²»ÄÜËõ·Å
+     * ACTION_POINTER_DOWN£ºÈç¹ûÊÖÖ¸¸öÊýÎª2,±ê¼Ç²»ÄÜÆ½ÒÆ¡¢ÄÜÐý×ª¡¢ÄÜËõ·Å
+     * ¼ÇÂ¼Æ½ÒÆ¿ªÊ¼Ê±Á½ÊÖÖ¸µÄÖÐµã¡¢Á½Ö»ÊÖÖ¸ÐÎ³ÉµÄÏòÁ¿¡¢Á½Ö»ÊÖÖ¸¼äµÄ¾àÀë
+     * ACTION_MOVE£º½øÐÐÆ½ÒÆ¡¢Ðý×ª¡¢Ëõ·ÅµÄ²Ù×÷¡£
+     * ACTION_POINTER_UP£ºÓÐÒ»Ö»ÊÖÖ¸Ì§ÆðµÄÊ±ºò£¬ÉèÖÃÍ¼Æ¬²»ÄÜÐý×ª¡¢²»ÄÜËõ·Å£¬¿ÉÒÔÆ½ÒÆ
      *
-     * @param event ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+     * @param event µã»÷ÊÂ¼þ
      * @return
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getActionMasked()) {
-            //ï¿½ï¿½ï¿½ã´¥ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Æ½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //µ¥µã´¥¿Ø£¬ÉèÖÃÍ¼Æ¬¿ÉÒÔÆ½ÒÆ¡¢²»ÄÜÐý×ªºÍËõ·Å
             case MotionEvent.ACTION_DOWN:
                 mCanTranslate = true;
                 mCanRotate = false;
                 mCanScale = false;
-                //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ã´¥ï¿½Øµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                //¼ÇÂ¼µ¥µã´¥¿ØµÄÉÏÒ»¸öµ¥µãµÄ×ø±ê
                 mLastSinglePoint.set(event.getX(), event.getY());
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
             	mAnimator.cancel();
-                //ï¿½ï¿½ã´¥ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
+                //¶àµã´¥¿Ø£¬ÉèÖÃÍ¼Æ¬²»ÄÜÆ½ÒÆ
                 mCanTranslate = false;
-                //ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ü¹ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                //µ±ÊÖÖ¸¸öÊýÎªÁ½¸öµÄÊ±ºò£¬ÉèÖÃÍ¼Æ¬ÄÜ¹»Ðý×ªºÍËõ·Å
                 if (event.getPointerCount() == 2) {
                     mCanRotate = true;
                     mCanScale = true;
-                    //ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ðµï¿½
+                    //¼ÇÂ¼Á½ÊÖÖ¸µÄÖÐµã
                     PointF pointF = midPoint(event);
-                    //ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    //¼ÇÂ¼¿ªÊ¼»¬¶¯Ç°Á½ÊÖÖ¸ÖÐµãµÄ×ø±ê
                     mLastMidPoint.set(pointF.x, pointF.y);
-                    //ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸Ö®ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
+                    //¼ÇÂ¼¿ªÊ¼»¬¶¯Ç°Á½¸öÊÖÖ¸Ö®¼äµÄ¾àÀë
                     mLastDist = distance(event);
-                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Ç¶ï¿½
+                    //ÉèÖÃÏòÁ¿£¬ÒÔ±ãÓÚ¼ÆËã½Ç¶È
                     mLastVector.set(event.getX(0) - event.getX(1), event.getY(0) - event.getY(1));
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
-                //ï¿½Ð¶ï¿½ï¿½Ü·ï¿½Æ½ï¿½Æ²ï¿½ï¿½ï¿½
+                //ÅÐ¶ÏÄÜ·ñÆ½ÒÆ²Ù×÷
                 if (mCanTranslate) {
                     float dx = event.getX() - mLastSinglePoint.x;
                     float dy = event.getY() - mLastSinglePoint.y;
-                    //Æ½ï¿½Æ²ï¿½ï¿½ï¿½
+                    //Æ½ÒÆ²Ù×÷
                     translation(dx, dy);
-                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    //ÖØÖÃÉÏÒ»¸öµ¥µãµÄ×ø±ê
                     mLastSinglePoint.set(event.getX(), event.getY());
                 }
-                //ï¿½Ð¶ï¿½ï¿½Ü·ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½
+                //ÅÐ¶ÏÄÜ·ñËõ·Å²Ù×÷
                 if (mCanScale) {
                     float scaleFactor = distance(event) / mLastDist;
                     scale(scaleFactor);
-                    //ï¿½ï¿½ï¿½ï¿½mLastDistï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´Ë»ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½
+                    //ÖØÖÃmLastDist£¬ÈÃÏÂ´ÎËõ·ÅÔÚ´Ë»ù´¡ÉÏ½øÐÐ
                     mLastDist = distance(event);
                 }
-                //ï¿½Ð¶ï¿½ï¿½Ü·ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+                //ÅÐ¶ÏÄÜ·ñÐý×ª²Ù×÷
                 if (mCanRotate) {
-                    //ï¿½ï¿½Ç°ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
+                    //µ±Ç°Á½Ö»ÊÖÖ¸¹¹³ÉµÄÏòÁ¿
                     PointF vector = new PointF(event.getX(0) - event.getX(1), event.getY(0) - event.getY(1));
-                    //ï¿½ï¿½ï¿½ã±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¼Ð½ï¿½
+                    //¼ÆËã±¾´ÎÏòÁ¿ºÍÉÏÒ»´ÎÏòÁ¿Ö®¼äµÄ¼Ð½Ç
                     float degree = calculateDeltaDegree(mLastVector, vector);
                     rotation(degree);
-                    //ï¿½ï¿½ï¿½ï¿½mLastVector,ï¿½Ô±ï¿½ï¿½Â´ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ä½Ç¶ï¿½
+                    //¸üÐÂmLastVector,ÒÔ±ãÏÂ´ÎÐý×ª¼ÆËãÐý×ª¹ýµÄ½Ç¶È
                     mLastVector.set(vector.x, vector.y);
                 }
-                //Í¼ï¿½ï¿½ä»»
+                //Í¼Ïñ±ä»»
                 transform();
                 break;
             case MotionEvent.ACTION_POINTER_UP:
-                //ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½ï¿½Ò»Ö»Ì§ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½Ñ¡ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
+                //µ±Á½Ö»ÊÖÖ¸ÓÐÒ»Ö»Ì§ÆðµÄÊ±ºò£¬ÉèÖÃÍ¼Æ¬²»ÄÜËõ·ÅºÍÑ¡Ôñ£¬ÄÜ¹»½øÐÐÆ½ÒÆ
                 if (event.getPointerCount() == 2) {
                     mCanScale = false;
                     mCanRotate = false;
                     mCanTranslate = true;
-                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+                    //ÖØÖÃÐý×ªºÍËõ·ÅÊ¹ÓÃµ½µÄÖÐµã×ø±ê
                     mLastMidPoint.set(0f, 0f);
-                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½Ä¾ï¿½ï¿½ï¿½
+                    //ÖØÖÃÁ½Ö»ÊÖÖ¸µÄ¾àÀë
                     mLastDist = 0f;
-                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½Î³Éµï¿½ï¿½ï¿½ï¿½ï¿½
+                    //ÖØÖÃÁ½Ö»ÊÖÖ¸ÐÎ³ÉµÄÏòÁ¿
                     mLastVector.set(0f, 0f);
                 }
-                //ï¿½ï¿½Ã¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½Ä¾ï¿½ï¿½ï¿½
+                //»ñµÃ¿ªÊ¼¶¯»­Ö®Ç°µÄ¾ØÕó
                 mCurrentMatrix.getValues(mBeginMatrixValues);
-                //ï¿½ï¿½ï¿½Å»Øµï¿½
+                //Ëõ·Å»Øµ¯
                 backScale();
                 upDateBoundRectF();
-                //ï¿½ï¿½×ªï¿½Øµï¿½
+                //Ðý×ª»Øµ¯
                 backRotation();
                 upDateBoundRectF();
-                //ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
+                //»ñµÃ¶¯»­½áÊøÖ®ºóµÄ¾ØÕó
                 mCurrentMatrix.getValues(mEndMatrixValues);
                 mAnimator.start();
                 break;
@@ -231,7 +231,7 @@ public class Material extends ImageView {
     }
     
     protected void translation(float dx, float dy) {
-        //ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ß½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½Ç·ñ³¬¹ï¿½ï¿½Ø¼ï¿½ï¿½Ä±ß½ï¿½
+        //¼ì²éÍ¼Æ¬±ß½çµÄÆ½ÒÆÊÇ·ñ³¬¹ý¿Ø¼þµÄ±ß½ç
     	int w = getWidth();
     	int h = getHeight();
         if (mBoundRectF.left + dx > getWidth() - 20 || mBoundRectF.right + dx < 20
@@ -243,12 +243,12 @@ public class Material extends ImageView {
     
 
     /**
-     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸Í·Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½Î»ï¿½ï¿½
+     * ¼ÆËãÁ½¸öÊÖÖ¸Í·Ö®¼äµÄÖÐÐÄµãµÄÎ»ÖÃ
      * x = (x1+x2)/2;
      * y = (y1+y2)/2;
      *
-     * @param event ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
-     * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param event ´¥ÃþÊÂ¼þ
+     * @return ·µ»ØÖÐÐÄµãµÄ×ø±ê
      */
     private PointF midPoint(MotionEvent event) {
         float x = (event.getX(0) + event.getX(1)) / 2;
@@ -258,32 +258,32 @@ public class Material extends ImageView {
 
 
     /**
-     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
+     * ¼ÆËãÁ½¸öÊÖÖ¸¼äµÄ¾àÀë
      *
-     * @param event ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
-     * @return ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸Ö®ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
+     * @param event ´¥ÃþÊÂ¼þ
+     * @return ·Å»ØÁ½¸öÊÖÖ¸Ö®¼äµÄ¾àÀë
      */
     private float distance(MotionEvent event) {
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
-        return (float) Math.sqrt(x * x + y * y);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¹«Ê½
+        return (float) Math.sqrt(x * x + y * y);//Á½µã¼ä¾àÀë¹«Ê½
     }
     
     
     /**
-     * Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½
+     * Í¼ÏñËõ·Å²Ù×÷
      *
-     * @param scaleFactor ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param scaleFactor Ëõ·Å±ÈÀýÒò×Ó
      */
     protected void scale(float scaleFactor) {
-        //ï¿½Û³ËµÃµï¿½ï¿½ÜµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //ÀÛ³ËµÃµ½×ÜµÄµÄËõ·ÅÒò×Ó
         mTotalScaleFactor *= scaleFactor;
         mCurrentMatrix.postScale(scaleFactor, scaleFactor, mBoundRectF.centerX(), mBoundRectF.centerY());
     }
     
     
     /**
-     * Í¼ï¿½ï¿½ä»»ï¿½ï¿½ï¿½ï¿½ï¿½Â±ß½ï¿½ï¿½ï¿½ï¿½
+     * Í¼Ïñ±ä»»²¢¸üÐÂ±ß½ç¾ØÕó
      */
     protected void transform() {
         setImageMatrix(mCurrentMatrix);
@@ -293,7 +293,7 @@ public class Material extends ImageView {
     
     
     /**
-     * ï¿½ï¿½ï¿½Â¾ï¿½ï¿½Î±ß½ï¿½
+     * ¸üÐÂ¾ØÐÎ±ß½ç
      */
     private void upDateBoundRectF() {
         if (this.getDrawable() != null) {
@@ -303,11 +303,11 @@ public class Material extends ImageView {
     }
     
     /**
-     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¼Ð½ï¿½
+     * ¼ÆËãÁ½¸öÏòÁ¿Ö®¼äµÄ¼Ð½Ç
      *
-     * @param lastVector ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½Î³Éµï¿½ï¿½ï¿½ï¿½ï¿½
-     * @param vector     ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ö¸ï¿½Î³Éµï¿½ï¿½ï¿½ï¿½ï¿½
-     * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½×ªï¿½ï¿½ï¿½Ä½Ç¶ï¿½
+     * @param lastVector ÉÏÒ»´ÎÁ½Ö»ÊÖÖ¸ÐÎ³ÉµÄÏòÁ¿
+     * @param vector     ±¾´ÎÁ½Ö»ÊÖÖ¸ÐÎ³ÉµÄÏòÁ¿
+     * @return ·µ»ØÊÖÖ¸Ðý×ª¹ýµÄ½Ç¶È
      */
     private float calculateDeltaDegree(PointF lastVector, PointF vector) {
         float lastDegree = (float) Math.atan2(lastVector.y, lastVector.x);
@@ -317,98 +317,98 @@ public class Material extends ImageView {
     }
     
     /**
-     * ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+     * Ðý×ª²Ù×÷
      *
-     * @param degree ï¿½ï¿½×ªï¿½Ç¶ï¿½
+     * @param degree Ðý×ª½Ç¶È
      */
     protected void rotation(float degree) {
-        //ï¿½ï¿½×ªï¿½ä»»
+        //Ðý×ª±ä»»
         mCurrentMatrix.postRotate(degree, mBoundRectF.centerX(), mBoundRectF.centerY());
 
     }
     
     /**
-     * ï¿½ï¿½×ªï¿½Øµï¿½
+     * Ðý×ª»Øµ¯
      */
     protected void backRotation() {
-        //xï¿½á·½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Ç¶ï¿½Îª0
+        //xÖá·½ÏòµÄµ¥Î»ÏòÁ¿£¬ÔÚ¼«×ø±êÖÐ£¬½Ç¶ÈÎª0
         float[] x_vector = new float[]{1.0f, 0.0f};
-        //Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //Ó³ÉäÏòÁ¿
         mCurrentMatrix.mapVectors(x_vector);
-        //ï¿½ï¿½ï¿½ï¿½xï¿½á·½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ä½Ç¶ï¿½
+        //¼ÆËãxÖá·½ÏòµÄµ¥Î»ÏòÁ¿×ª¹ýµÄ½Ç¶È
         float totalDegree = (float) Math.toDegrees((float) Math.atan2(x_vector[1], x_vector[0]));
         float degree = totalDegree;
         degree = Math.abs(degree);
-        //ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ÈµÄ¾ï¿½ï¿½ï¿½Öµï¿½ï¿½45-135ï¿½ï¿½Ö®ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½Îª90ï¿½ï¿½
+        //Èç¹ûÐý×ª½Ç¶ÈµÄ¾ø¶ÔÖµÔÚ45-135¶ÈÖ®¼ä£¬ÈÃÆäÐý×ª½Ç¶ÈÎª90¶È
         if (degree > 45 && degree <= 135) {
             degree = 90;
-        } //ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ÈµÄ¾ï¿½ï¿½ï¿½Öµï¿½ï¿½135-225Ö®ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½Îª180ï¿½ï¿½
+        } //Èç¹ûÐý×ª½Ç¶ÈµÄ¾ø¶ÔÖµÔÚ135-225Ö®¼ä£¬ÈÃÆäÐý×ª½Ç¶ÈÎª180¶È
         else if (degree > 135 && degree <= 225) {
             degree = 180;
-        } //ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ÈµÄ¾ï¿½ï¿½ï¿½Öµï¿½ï¿½225-315Ö®ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½Îª270ï¿½ï¿½
+        } //Èç¹ûÐý×ª½Ç¶ÈµÄ¾ø¶ÔÖµÔÚ225-315Ö®¼ä£¬ÈÃÆäÐý×ª½Ç¶ÈÎª270¶È
         else if (degree > 225 && degree <= 315) {
             degree = 270;
-        }//ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ÈµÄ¾ï¿½ï¿½ï¿½Öµï¿½ï¿½315-360Ö®ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½Îª0ï¿½ï¿½
+        }//Èç¹ûÐý×ª½Ç¶ÈµÄ¾ø¶ÔÖµÔÚ315-360Ö®¼ä£¬ÈÃÆäÐý×ª½Ç¶ÈÎª0¶È
         else {
             degree = 0;
         }
         degree = totalDegree < 0 ? -degree : degree;
-        //degree-totalDegreeï¿½ï¿½ï¿½ï¿½ïµ½90ï¿½Ä±ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½Öµ
+        //degree-totalDegree¼ÆËã´ïµ½90µÄ±¶Êý½Ç£¬ËùÐèµÄ²îÖµ
         mCurrentMatrix.postRotate(degree - totalDegree, mBoundRectF.centerX(), mBoundRectF.centerY());
     }
 
     /**
-     * ï¿½ï¿½ï¿½Å»Øµï¿½
+     * Ëõ·Å»Øµ¯
      */
     protected void backScale() {
         float scaleFactor = 1.0f;
-        //ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó±È³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð»Øµï¿½
+        //Èç¹û×ÜµÄËõ·Å±ÈÀýÒò×Ó±È³õÊ¼»¯µÄËõ·ÅÒò×Ó»¹Ð¡£¬½øÐÐ»Øµ¯
         if (mTotalScaleFactor / mInitialScaleFactor < mMinScaleFactor) {
-            //1ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù³Ë³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Ã»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //1³ýÒÔ×ÜµÄËõ·ÅÒò×ÓÔÙ³Ë³õÊ¼»¯µÄËõ·ÅÒò×Ó£¬ÇóµÃ»Øµ¯µÄËõ·ÅÒò×Ó
             scaleFactor = mInitialScaleFactor / mTotalScaleFactor * mMinScaleFactor;
-            //ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Ô±ï¿½ï¿½Â´ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //¸üÐÂ×ÜµÄËõ·ÅÒò×Ó£¬ÒÔ±ãÏÂ´ÎÔÚ´ËËõ·Å±ÈÀýµÄ»ù´¡ÉÏ½øÐÐËõ·Å
             mTotalScaleFactor = mInitialScaleFactor * mMinScaleFactor;
         }
-        //ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //Èç¹û×ÜµÄËõ·Å±ÈÀýÒò×Ó´óÓÚ×î´óÖµ£¬ÈÃÍ¼Æ¬·Å´óµ½×î´ó±¶Êý
         else if (mTotalScaleFactor / mInitialScaleFactor > mMaxScaleFactor) {
-            //ï¿½ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //Çó·Å´óµ½×î´ó±¶Êý£¬ÐèÒªµÄ±ÈÀýÒò×Ó
             scaleFactor = mInitialScaleFactor / mTotalScaleFactor * mMaxScaleFactor;
-            //ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Ô±ï¿½ï¿½Â´ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //¸üÐÂ×ÜµÄËõ·ÅÒò×Ó£¬ÒÔ±ãÏÂ´ÎÔÚ´ËËõ·Å±ÈÀýµÄ»ù´¡ÉÏ½øÐÐËõ·Å
             mTotalScaleFactor = mInitialScaleFactor * mMaxScaleFactor;
         }
         mCurrentMatrix.postScale(scaleFactor, scaleFactor, mBoundRectF.centerX(), mBoundRectF.centerY());
     }
 
     /**
-     * Æ½ï¿½Æ»Øµï¿½
-     * Æ½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½Ð°×±ßµï¿½ï¿½ï¿½ï¿½
+     * Æ½ÒÆ»Øµ¯
+     * Æ½ÒÆÖ®ºó²»ÄÜ³öÏÖÓÐ°×±ßµÄÇé¿ö
      */
     protected void backTranslation() {
         float dx = 0;
         float dy = 0;
-        //ï¿½Ð¶ï¿½Í¼Æ¬ï¿½Ä¿ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½Ä¿ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð±ß½ï¿½ï¿½ï¿½Ð¶ï¿½
+        //ÅÐ¶ÏÍ¼Æ¬µÄ¿í¶ÈÊÇ·ñ´óÓÚ¿Ø¼þµÄ¿í¶È£¬ÈôÊÇÒª½øÐÐ±ß½çµÄÅÐ¶Ï
         if (mBoundRectF.width() >= getWidth()) {
-            //ï¿½ï¿½ß½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½ï¿½Î§ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ß½ç³¬ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Î§
+            //×ó±ß½çÔÚ¿Ø¼þ·¶Î§ÄÚ£¬»òÕßÍ¼Æ¬×ó±ß½ç³¬³ö¿Ø¼þ·¶Î§
             if ((mBoundRectF.left > getLeft() && mBoundRectF.left <= getRight()) || mBoundRectF.left > getRight()) {
                 dx = getLeft() - mBoundRectF.left;
-            } //Í¼Æ¬ï¿½Ò±ß½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½ï¿½Î§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ò±ß½ç³¬ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Î§
+            } //Í¼Æ¬ÓÒ±ß½çÔÚ¿Ø¼þ·¶Î§ÄÚ,»òÕßÍ¼Æ¬ÓÒ±ß½ç³¬³ö¿Ø¼þ·¶Î§
             else if ((mBoundRectF.right >= getLeft() && mBoundRectF.right < getRight()) || mBoundRectF.right < getLeft()) {
                 dx = getRight() - mBoundRectF.right;
             }
-        } //ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ð¡ï¿½Ú¿Ø¼ï¿½ï¿½ï¿½È£ï¿½ï¿½Æ¶ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½Í¿Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½
+        } //Èç¹ûÍ¼Æ¬¿í¶ÈÐ¡ÓÚ¿Ø¼þ¿í¶È£¬ÒÆ¶¯Í¼Æ¬ÖÐÐÄx×ø±êºÍ¿Ø¼þÖÐÐÄx×ø±êÖØºÏ
         else {
             dx = getPivotX() - mBoundRectF.centerX();
         }
-        //ï¿½Ð¶ï¿½Í¼Æ¬ï¿½Ä¸ß¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½Ä¸ß¶È£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð±ß½ï¿½ï¿½ï¿½Ð¶ï¿½
+        //ÅÐ¶ÏÍ¼Æ¬µÄ¸ß¶ÈÊÇ·ñ´óÓÚ¿Ø¼þµÄ¸ß¶È£¬ÈôÊÇÒª½øÐÐ±ß½çµÄÅÐ¶Ï
         if (mBoundRectF.height() >= getHeight()) {
-            //Í¼Æ¬ï¿½Ï±ß½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½ï¿½Î§ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ï±ß½ç³¬ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Î§
+            //Í¼Æ¬ÉÏ±ß½çÔÚ¿Ø¼þ·¶Î§ÄÚ£¬»òÕßÍ¼Æ¬ÉÏ±ß½ç³¬³ö¿Ø¼þ·¶Î§
             if ((mBoundRectF.top > getTop() && mBoundRectF.top <= getBottom()) || mBoundRectF.top > getBottom()) {
                 dy = getTop() - mBoundRectF.top;
-            } //Í¼Æ¬ï¿½Â±ß½ï¿½ï¿½Ú¿Ø¼ï¿½ï¿½ï¿½Î§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Â±ß½ç³¬ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Î§
+            } //Í¼Æ¬ÏÂ±ß½çÔÚ¿Ø¼þ·¶Î§ÄÚ,»òÕßÍ¼Æ¬ÏÂ±ß½ç³¬³ö¿Ø¼þ·¶Î§
             else if ((mBoundRectF.bottom < getBottom() && mBoundRectF.bottom >= getTop()) || mBoundRectF.bottom < getTop()) {
                 dy = getBottom() - mBoundRectF.bottom;
             }
-        } //ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ß¶ï¿½Ð¡ï¿½Ú¿Ø¼ï¿½ï¿½ß¶È£ï¿½ï¿½Æ¶ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½Í¿Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½
+        } //Èç¹ûÍ¼Æ¬¸ß¶ÈÐ¡ÓÚ¿Ø¼þ¸ß¶È£¬ÒÆ¶¯Í¼Æ¬ÖÐÐÄy×ø±êºÍ¿Ø¼þÖÐÐÄy×ø±êÖØºÏ
         else {
             dy = getPivotY() - mBoundRectF.centerY();
         }
@@ -418,4 +418,5 @@ public class Material extends ImageView {
 
 
 } 
+ 
 

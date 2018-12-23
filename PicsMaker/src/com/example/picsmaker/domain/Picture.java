@@ -8,7 +8,8 @@ public class Picture {
 	private String path;
 	private List<String> tags;
 
-	public Picture(String p, String tag){
+	Picture(String p, String tag){
+
 		this.path = p;
 		
 		tags = new ArrayList<String>();
@@ -22,6 +23,7 @@ public class Picture {
 	
 	public List<String> getTags(){
 		return tags;
+
 	}
 }
 

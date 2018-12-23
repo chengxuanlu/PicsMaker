@@ -5,9 +5,10 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="D:/PicsMaker/android-support-v4.jar"/>
-	<classpathentry kind="lib" path="D:/PicsMaker/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="D:/PicsMaker/sqlite-jdbc-3.23.1.jar"/>
-	<classpathentry kind="lib" path="D:/PicsMaker/android.jar"/>
+ 
+	<classpathentry kind="lib" path="D:/软件工程/PProject/repo/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="D:/软件工程/PProject/repo/sqlite-jdbc-3.23.1.jar"/>
+	<classpathentry kind="lib" path="D:/软件工程/PProject/repo/gson-2.2.4.jar"/>
+ 
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
